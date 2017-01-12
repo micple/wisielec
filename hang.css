@@ -1,0 +1,44 @@
+body {
+	background-color: black;
+	color: aliceblue;
+}
+
+.pojemnik {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#haslo {
+	text-align: center;
+	color: red;
+	font-size: 18px;
+}
+
+#obrazek {
+	min-height: 480px;
+	min-width: 480px;
+	float: left;
+}
+
+#obrazek img {
+	width: 480px;
+	height: 480px;
+}
+
+#alfabet {
+	height: 480px;
+	width: 480px;
+	float: left;
+	background: black;
+}
+
+.literki {
+    color: aliceblue;
+    border: 2px solid aliceblue;
+    border-radius: 4px;
+    float: left;
+    margin: 15px;
+    padding: 6px;
+    font-size: 24px;
+}
