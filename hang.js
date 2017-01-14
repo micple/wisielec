@@ -4,7 +4,7 @@ var karnePunkty = 1; //wpływa na kolejność wyświetlanych obrazków wisielca
 
 var alfabet = ["A", "Ą", "B", "C", "Ć", "D", "E", "Ę", "F", "G", "H", "I", "J", "K", "L", "Ł", "M", "N", "Ń", "O", "P", "Q", "R", "S", "Ś", "T", "U", "V", "W", "X", "Y", "Z", "Ź", "Ż"];
 
-var haslo = "Gdzie są woły, tam plon obfity";
+var haslo = "Minecraft";
 haslo = haslo.toLocaleUpperCase();
 var dlugoscHasla = haslo.length;
 var hasloUkryte = "";
@@ -43,11 +43,12 @@ function zmienLitere(litera, miejsce, znaki) {
 
 
 var czyOdkrytoLitere = false;
+var numerLitery = 0;
 //sprwdza, czy kliknięta litera znajduje się w haśle
 function sprawdz(clickedID) {
-    debugger;
+    numerLitery = clickedID; //do użycia też w innch funkcjach
     for (var i = 0; i < dlugoscHasla; i++) {
-        if (document.getElementById(clickedID).innerHTML === haslo.charAt(i)) {
+        if (document.getElementById(numerLitery).innerHTML === haslo.charAt(i)) {
             hasloUkryte = zmienLitere(haslo.charAt(i), i, hasloUkryte);
             document.getElementById("haslo").innerHTML = hasloUkryte;
             czyOdkrytoLitere = true; //nic się niedzeje, jednak jeżeli zmienna zostanie false, to wykonuje się kolejna część kodu odpowiedzialna za dodanie karnego punktu i wyświetlenie kolejnego obrazka zbliżającego do przegranej
@@ -57,5 +58,13 @@ function sprawdz(clickedID) {
         karnePunkty++;
         document.getElementById("obrazek").innerHTML = '<img src="grafa/h' + karnePunkty + '.jpg">';
     }
+    poKlikuLiterki();
     czyOdkrytoLitere = false;
+}
+
+
+//funcja odpowiadająca za zmianę wyglądu i zachowania liter po kliknięciu
+function poKlikuLiterki() {
+    document.getElementById(numerLitery).onclick = function(){};
+    document.getElementById(numerLitery).classList.toggle('clicked');
 }
