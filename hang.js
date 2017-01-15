@@ -1,6 +1,9 @@
 var karnePunkty = 1; //wpływa na kolejność wyświetlanych obrazków wisielca
 var alfabet = ["A", "Ą", "B", "C", "Ć", "D", "E", "Ę", "F", "G", "H", "I", "J", "K", "L", "Ł", "M", "N", "Ń", "O", "P", "Q", "R", "S", "Ś", "T", "U", "V", "W", "X", "Y", "Z", "Ź", "Ż"];
-var haslo = "Minecraft";
+
+//hasła
+var zestawHasel = ["motocykl","rower","samochód","mama","tata","gwiazda","księżniczka","rycesz","laser","książka","okluary","ciuchcia","autobus","traktor","chmura","słońce","czasoprzestrzeń","kosmos"];
+var haslo = zestawHasel[Math.floor((Math.random() * zestawHasel.length))]; //losuje jedno z z zestawu haseł
 haslo = haslo.toLocaleUpperCase();
 var dlugoscHasla = haslo.length;
 var hasloUkryte = "";
@@ -68,6 +71,7 @@ function poKlikuLiterki() {
 
 // funkcja odpowiedzialna za sprawdzanie czy liczba puinktów klarnych nie osiągnęła limitu (wyświetla komunikat o przegranej), lub czy hasło nie zostało w pełni odkryte (wyświetla komunikat o wygranej)
 function wisielec() {
-    if (karnePunkty === 8) document.getElementById("alfabet").innerHTML = '<div>Przegrałeś</div>'
-    else if (haslo === hasloUkryte) document.getElementById("alfabet").innerHTML = '<div>Wygrałeś!</div>'
+    if (karnePunkty === 8) document.getElementById("alfabet").innerHTML = '<div>Przegrałeś, hasło to '+haslo+'</div><br /><button onclick="location.reload();">Spróbuj ponownie!</button>'
+    else if (haslo === hasloUkryte) document.getElementById("alfabet").innerHTML = '<div>Wygrałeś!</div><button onclick="location.reload();">Spróbuj ponownie!</button>'
 }
+
